@@ -3,10 +3,10 @@ package edu.isu.cs2263.hom4;
 import java.util.HashSet;
 
 public class GraphImplm implements Visitor {
-    private HashSet<User> nodes;
+    private HashSet<User> users;
 
     public GraphImplm() {
-        nodes = new HashSet<>();
+        users = new HashSet<>();
     }
 
     public boolean AddEdge(User v1, User v2, String relnName) {
@@ -14,11 +14,11 @@ public class GraphImplm implements Visitor {
     }
 
     public void AddUser(User v) {
-        nodes.add(v);
+        users.add(v);
     }
 
-    public void printGraph() {
-        for (User v : nodes) {
+    public void printRelationships() {
+        for (User v : users) {
             for (Relationship e : v.getRelnList()) {
                 System.out.print(v.getName());
                 System.out.print("------" + e.getRelnName()+"------"+e.getDestVertex().getName()  );
@@ -31,7 +31,7 @@ public class GraphImplm implements Visitor {
         int married=0;
         int follower=0;
         int noRelationship=0;
-        for (User v : nodes) {
+        for (User v : users) {
             for (Relationship e : v.getRelnList()) {
                 boolean isMarried=(e.getRelnName()=="Married");
                 boolean isFollower=(e.getRelnName()=="Follower");
@@ -46,9 +46,6 @@ public class GraphImplm implements Visitor {
 
 
 
-                //System.out.print(v.getName());
-                // System.out.print("------" + e.getRelnName()+"------"+e.getDestVertex().getName()  );
-                // return counter;
             }
 
 
@@ -61,13 +58,13 @@ public class GraphImplm implements Visitor {
 
     @Override
     public void visit(Married married) {
-        printGraph();
-        Count();
+        printRelationships();
+        //Count();
     }
 
     @Override
     public void visit(Follower follower) {
-        printGraph();
+       // printRelationships();
         Count();
     }
 

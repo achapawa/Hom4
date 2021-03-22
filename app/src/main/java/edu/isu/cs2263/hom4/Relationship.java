@@ -9,9 +9,6 @@ public class Relationship implements Visitable {
         this.relnName = w;
     }
 
-    /* can use this approach for an unweighted graph
-        or better remove variable weight altogether from Edge class */
-
     public String getRelnName() {
         return relnName;
     }

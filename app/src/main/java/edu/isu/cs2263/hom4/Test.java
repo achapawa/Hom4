@@ -18,7 +18,7 @@ public class Test {
         ourGraph.AddUser(Dinesh);
         ourGraph.AddUser(Tabitha);
 
-        
+
         m1.accept(ourGraph);
         F1.accept(ourGraph);
 
